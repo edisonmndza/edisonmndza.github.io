@@ -70,7 +70,7 @@ iframe{
 }
 
 table{
-	border-spacing: 10;
+	border-spacing: 10px;
 	background-color:lightgrey;
 	margin: 0 auto;	
 }
