@@ -20,7 +20,7 @@ color:white;
 text-decoration: none;
 padding: 5px 20px;
 font-family: "Roboto";
-font-size: 15px;
+font-size: 13px;
 }
 
 .main-nav li.active a{
@@ -33,6 +33,7 @@ font-size: 15px;
 
 body
 {
+	width:100%;
 	background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(car1.jpg);
 	height: 100vh;
 	background-size: cover;
@@ -66,4 +67,10 @@ p{
 
 iframe{
 	display:block;
+}
+
+table{
+	border-spacing: 10px;
+	background-color:lightgrey;
+	margin: 0 auto;	
 }
