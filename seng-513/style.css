@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:500&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+*  {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+li, a {
+    font-family: "Catamaran", Verdana;
+    font-weight: 500;
+    font-size: 15px;
+    color: lightgrey;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 8%;
+    background-color: black;
+}
+
+.logo {
+    cursor: pointer;
+    height: 30px;
+    width: auto;
+    padding-top: 5px;
+}
+
+.main-nav {
+    list-style: none;
+}
+
+.main-nav li {
+    display: inline-block;
+    padding: 0px 15px;
+}
+
+.main-nav li a {
+    transition: 0.3s;
+}
+
+.main-nav li a:hover{
+    color: white
+}
+
+/* main page feature */
+.feature{
+    background-image: url("images/featurecar.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    transition: 0.3s;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-width: 5px;
+    border-color: lightgrey;
+    background-color: black;
+    opacity: 0.8;
+
+    /* Text */
+    font-family: "Catamaran", Verdana;
+    font-weight: 500;
+    font-size: 8vw;
+    color: lightgrey;
+    text-decoration: none;
+}
+
+button:hover {
+    opacity: 1;
+}
+/* gallery */
+@media(min-width:1080px){
+    .gallery {
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.gallery div {
+    padding: 20px;
+    font-family: "Catamaran", Verdana;
+    font-weight: 500;
+    font-size: 15px;
+}
+.gallery-left {
+    flex: 1;
+}
+.gallery-right {
+    flex: 1;
+}
+
+/* about */
+@media(min-width:1080px){
+    .about {
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.about div {
+    padding: 20px;
+}
+
+.about-text {
+    font-family: "Catamaran", Verdana;
+    font-weight: 500;
+    font-size: 15px;
+    flex:2;
+    order:2;
+}
+
+.about-profile {
+    flex:1;
+    order:1;
+}
