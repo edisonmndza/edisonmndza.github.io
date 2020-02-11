@@ -6,8 +6,6 @@ body, html {
     height: 100%;
     margin: 0;
 
-
-
     text-align: center;
 }
 
@@ -26,8 +24,8 @@ header {
     padding: 5px;
 }
 
-@media(min-width:768px){
-    div.main{ 
+@media(min-width:1080px){
+    .main{ 
         margin: auto;
         width: 600px;
     }
