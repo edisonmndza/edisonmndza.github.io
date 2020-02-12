@@ -2,6 +2,7 @@
 * {
     box-sizing: border-box
 } 
+
 body, html {
     height: 100%;
     margin: 0;
@@ -69,11 +70,11 @@ input[type="text"]{
 
 .displayCurr{
     border: 2px lightgrey solid;
-    font-size: 80px;
+    font-size: 50px;
 }
 
 .displayPrev{
-    font-size: 60px;
+    font-size: 40px;
 }
 
 .symbol{
