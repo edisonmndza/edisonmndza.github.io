@@ -58,9 +58,9 @@ input[type="button"],[type="text"]{
 } 
 
 input[type="button"]{
-    padding-top: 40px;
-    padding-bottom: 40px;
-    font-size: 40px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 30px;
 }
 
 input[type="text"]{
@@ -70,11 +70,11 @@ input[type="text"]{
 
 .displayCurr{
     border: 2px lightgrey solid;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .displayPrev{
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .symbol{
