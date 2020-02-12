@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head> 
+    <meta name="viewport" content= 
+        "width=device-width, initial-scale=1.0"> 
 	<title>Calculator</title> 
     <link href="style.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src='onclickfn.js'> </script>
@@ -17,37 +19,37 @@
                     <td colspan="4"><input type="text" class="displayPrev" id="displayPrev" disabled></td>
                 </tr>
                 <tr>
-                    <td colspan="4"><input type="text" class="displayCurr" id="displayCurr" disabled></td>
+                    <td colspan="4"><input type="text" class="displayCurr" id="displayCurr" value='' disabled></td>
                 </tr>
                 <tr>
-                    <td class="symbol"><input type="button" value="(" onclick="calculator.displayCurr.value = calculator.displayCurr.value.replace(/^0+/, '') + '('"></td>
-                    <td class="symbol"><input type="button" value=")" onclick="calculator.displayCurr.value = calculator.displayCurr.value.replace(/^0+/, '') + ')'"></td>
+                    <td class="symbol"><input type="button" value="(" onclick="append('(')"></td>
+                    <td class="symbol"><input type="button" value=")" onclick="append(')')"></td>
                     <td class="symbol"><input type="button" value="C" onclick="clearField()"></td>
                     <td class="symbol"><input type="button" value="CE" onclick="backspace()"></td>
                 </tr>
                 <tr>
-                    <td class="number"><input type="button" value="7" onclick="calculator.displayCurr.value = calculator.displayCurr.value.replace(/^0+/, '') + '7'"></td class="number">
-                    <td class="number"><input type="button" value="8" onclick="calculator.displayCurr.value = calculator.displayCurr.value.replace(/^0+/, '') + '8'"></td class="number">
-                    <td class="number"><input type="button" value="9" onclick="calculator.displayCurr.value = calculator.displayCurr.value.replace(/^0+/, '') + '9'"></td class="number">
-                    <td class="symbol"><input type="button" value="/" onclick="updateSym('/')"></td>
+                    <td class="number"><input type="button" value="7" onclick="append('7')"></td class="number">
+                    <td class="number"><input type="button" value="8" onclick="append('8')"></td class="number">
+                    <td class="number"><input type="button" value="9" onclick="append('9')"></td class="number">
+                    <td class="symbol"><input type="button" value="/" onclick="appendSym('/')"></td>
                 </tr>
                 <tr>
-                    <td class="number"><input type="button" value="4" onclick="calculator.displayCurr.value = calculator.displayCurr.value.replace(/^0+/, '') + '4'"></td class="number">
-                    <td class="number"><input type="button" value="5" onclick="calculator.displayCurr.value = calculator.displayCurr.value.replace(/^0+/, '') + '5'"></td class="number">
-                    <td class="number"><input type="button" value="6" onclick="calculator.displayCurr.value = calculator.displayCurr.value.replace(/^0+/, '') + '6'"></td class="number">
-                    <td class="symbol"><input type="button" value="x" onclick="updateSym('*')"></td>
+                    <td class="number"><input type="button" value="4" onclick="append('4')"></td class="number">
+                    <td class="number"><input type="button" value="5" onclick="append('5')"></td class="number">
+                    <td class="number"><input type="button" value="6" onclick="append('6')"></td class="number">
+                    <td class="symbol"><input type="button" value="x" onclick="appendSym('*')"></td>
                 </tr>
                 <tr>
-                    <td class="number"><input type="button" value="1" onclick="calculator.displayCurr.value = calculator.displayCurr.value.replace(/^0+/, '') + '1'"></td class="number">
-                    <td class="number"><input type="button" value="2" onclick="calculator.displayCurr.value = calculator.displayCurr.value.replace(/^0+/, '') + '2'"></td class="number">
-                    <td class="number"><input type="button" value="3" onclick="calculator.displayCurr.value = calculator.displayCurr.value.replace(/^0+/, '') + '3'"></td class="number">
-                    <td class="symbol"><input type="button" value="-" onclick="updateSym('-')"></td>
+                    <td class="number"><input type="button" value="1" onclick="append('1')"></td class="number">
+                    <td class="number"><input type="button" value="2" onclick="append('2')"></td class="number">
+                    <td class="number"><input type="button" value="3" onclick="append('3')"></td class="number">
+                    <td class="symbol"><input type="button" value="-" onclick="appendSym('-')"></td>
                 </tr>
                 <tr>
-                    <td class="number"><input type="button" value="0" onclick="calculator.displayCurr.value = calculator.displayCurr.value.replace(/^0+/, '') + '0'"></td class="number">
-                    <td class="number"><input type="button" value="." onclick="calculator.displayCurr.value +='.'"></td class="number">
+                    <td class="number"><input type="button" value="0" onclick="append('0')"></td class="number">
+                    <td class="number"><input type="button" value="." onclick="appendDec()"></td class="number">
                     <td class="eval"><input type="button" value="=" onclick="calculate()"></td>
-                    <td class="symbol"><input type="button" value="+" onclick="updateSym('+')"></td>
+                    <td class="symbol"><input type="button" value="+" onclick="appendSym('+')"></td>
                 </tr>
 
             </table>

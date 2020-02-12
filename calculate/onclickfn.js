@@ -8,7 +8,24 @@ function backspace(){
 }
 //from https://stackoverflow.com/questions/952924/javascript-chop-slice-trim-off-last-character-in-string
 
-function updateSym(sym){
+function append(input){
+    if (document.getElementById("displayCurr").value == '0'){
+        document.getElementById("displayCurr").value = input;
+    } else document.getElementById("displayCurr").value += input;
+}
+
+function appendDec(){
+    var expressionSplit = document.getElementById("displayCurr").value.split(/\+|\-|\/|\*/);
+    var lastNum = expressionSplit[expressionSplit.length -1];
+    if (lastNum == '') 
+        document.getElementById("displayCurr").value += '0.';
+    else {
+        if (!lastNum.includes('.'))
+            document.getElementById("displayCurr").value += '.';
+    }
+}
+
+function appendSym(sym){
     if (document.getElementById("displayCurr").value == ''){ // blank
         // - use previous result if available
         // - add zero if no previous result or prev result is ERROR
@@ -33,12 +50,18 @@ function updateSym(sym){
 }
 
 function calculate(){
-    var output;
-    try {
-        output = eval(document.getElementById("displayCurr").value);
-    } catch (e) {
-        output = 'ERROR';
+    if (document.getElementById("displayCurr").value == ''){
+        if (document.getElementById("displayPrev").value == ''){
+            document.getElementById("displayPrev").value = '0';
+        }
+    } else {
+        var output;
+        try {
+            output = eval(document.getElementById("displayCurr").value);
+        } catch (e) {
+            output = 'ERROR';
+        }
+        document.getElementById("displayPrev").value = document.getElementById("displayCurr").value + '=' + output;
+        document.getElementById("displayCurr").value = '';    
     }
-    document.getElementById("displayPrev").value = document.getElementById("displayCurr").value + '=' + output;
-    document.getElementById("displayCurr").value = '';
 }
