@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:500&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+li, a {
+    font-family: "Catamaran", Verdana;
+    font-weight: 500;
+    font-size: 15px;
+    color: lightgrey;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 8%;
+    background-color: black;
+}
+
+.logo {
+    cursor: pointer;
+    height: 30px;
+    width: auto;
+    padding-top: 5px;
+}
+
+.left {
+    width: 80%;
+    border: 2px black solid;
+}
+
+form { 
+    background: lightgrey; 
+    padding: 3px; 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+}
+
+form input { 
+    border: 0; 
+    padding: 10px; 
+    width: 84%; 
+}
+
+form button { 
+    width: 14%; 
+    background: rgb(130, 224, 255); 
+    border: none; 
+    padding: 10px; 
+}
+
+#messages { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+}
+
+#messages li { 
+    padding: 5px 10px; 
+}
+
+#messages li:nth-child(odd) { 
+    background: #eee; 
+}
