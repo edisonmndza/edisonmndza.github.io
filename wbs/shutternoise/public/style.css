@@ -13,22 +13,18 @@ body, html {
 }
 
 h3 {
-    font-family: "Catamaran", Verdana;
+    font-family: Verdana;
     font-weight: 500;
     color: black;
     padding: 5px 0px 0px 10px;
 }
 
 li, a {
-    font-family: "Catamaran", Verdana;
+    font-family: Verdana;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 13px;
     color: black;
     text-decoration: none;
-}
-
-p {
-    font-size: 30px;
 }
 
 header {
@@ -89,15 +85,29 @@ form button {
     padding: 10px;
 }
 
-#messages { 
+#messages, #user-list{ 
     list-style-type: none; 
-    margin: 5px; 
     padding: 0px; 
     background-color: whitesmoke;
     overflow-y: auto;
+}
+
+#messages {
+    margin: 5px; 
     height: 90%;
 }
 
 #messages li { 
     padding: 5px 10px; 
 }
+
+#user-list{
+    margin: 5px 5px 5px 0px; 
+    padding: 2.5px 0px 2.5px 0px;
+    max-height: 60%;    
+}
+
+#user-list li {
+    padding: 2.5px 5px 2.5px 5px; 
+}
+
