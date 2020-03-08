@@ -4,7 +4,7 @@ var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 
 let userList = [];
-let chatLog = [[]];
+let chatLog = [];
 let userCount = 0;
 
 app.use(express.static('public'));
@@ -29,9 +29,13 @@ io.on('connection', function(socket){
       //let user now who he is
       socket.emit('assigned-name', userDefault)
 
-      //notify everyone about new user
+      //notify everyone else bout new user
       var res = '<span style="color:#' + socket.color + '"> ' + socket.name + '</span> has entered the room.'
-      io.emit('add-message', '', '', getTime(), res, 0)
+      socket.broadcast.emit('add-message', '', '', getTime(), res, 0)
+      chatLog.push(['', '', getTime(), res, 0])
+
+      //fill new user's messagebox
+      socket.emit('populate-chat-box', chatLog)      
       
       //update everyone's user list
       io.emit('update-user-list', userList)
@@ -44,8 +48,9 @@ io.on('connection', function(socket){
           //Notify everyone
           var res = 'Server: <span style="color:#' + socket.color + '"> ' + socket.name + '</span>' + 
                     ' renamed to' + 
-                    '<span style="color:#' + socket.color + '"> ' + msg.substring(6) + '</span>';
-          io.emit('add-message', socket.color, socket.name, getTime(), res, 3);
+                    '<span style="color:#' + socket.color + '"> ' + msg.substring(6) + '</span>';                    
+          io.emit('add-message', '', '', getTime(), res, 3);
+          chatLog.push(['', '', getTime(), res, 3])
 
           //Remove and replace from list & socket name
           userList.splice(userList.indexOf(socket.name), 1);
@@ -73,12 +78,15 @@ io.on('connection', function(socket){
                           ' color changed to' + 
                           '<span style="color:#' + socket.color + '"> ' + socket.name + '</span>';
         io.emit('add-message', '', '', getTime(), res, 3);
+        chatLog.push(['', '', getTime(), res, 3])
 
       } else {        
         //send to everyone else
         socket.broadcast.emit('add-message', socket.color, socket.name, getTime(), msg, 2);
         //send to you but bolded
         socket.emit('add-message', socket.color, socket.name, getTime(), msg, 1)
+        chatLog.push([socket.color, socket.name, getTime(), msg, 2])
+
       }
     });
 
@@ -91,6 +99,9 @@ io.on('connection', function(socket){
       //notify everyone that user left
       var res = '<span style="color:#' + socket.color + '"> ' + socket.name + '</span> has left the room.'
       io.emit('add-message', '', '', getTime(), res, 0)
+      chatLog.push(['', '', getTime(), res, 0])
+
+
     });
 });
 

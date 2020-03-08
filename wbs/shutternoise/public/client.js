@@ -32,33 +32,40 @@ $(function () {
     })
   })
 
-  // type 0 = user activity (join/left, name/color change)
-  // type 1 = user's message
-  // type 2 = others' message
-  // type 3 = server's message
+  socket.on('populate-chat-box', function(chatLog){
+    chatLog.forEach(el => {
+      addMessage(el[0], el[1], el[2], el[3], el[4])      
+    });
+  })
+
   socket.on('add-message', function(color, sender, timeStamp, msg, type){
-    switch (type){
-      case 0:
-        $('#messages').append($('<li>').html('[' + timeStamp + ']<i> ' + msg + '</i>'));
-        break;
-      case 1:
-        $('#messages').append($('<li>').html('[' + timeStamp + ']<b> ' + 
-        '<span style="color:#' + color + '">' + sender + '</span>: ' + 
-        msg + '</b>'));
-        break;
-      case 2: 
-        $('#messages').append($('<li>').html( '[' + timeStamp + '] ' + 
-        '<span style="color:#' + color + '">' + sender + '</span>: '  + msg));
-        break; 
-        case 3:
-          $('#messages').append($('<li>').html('[' + timeStamp + '] ' + msg));
-          break;
-    }
-    scrollToBottom();
+    addMessage (color, sender, timeStamp, msg, type)
   });
 });
 
-function scrollToBottom(){
+// type 0 = user activity (join/left)
+// type 1 = user's message
+// type 2 = others' message
+// type 3 = server's message (name/color change)
+function addMessage(color, sender, timeStamp, msg, type){
+  switch (type){
+    case 0:
+      $('#messages').append($('<li>').html('[' + timeStamp + ']<i> ' + msg + '</i>'));
+      break;
+    case 1:
+      $('#messages').append($('<li>').html('[' + timeStamp + ']<b> ' + 
+      '<span style="color:#' + color + '">' + sender + '</span>: ' + 
+      msg + '</b>'));
+      break;
+    case 2: 
+      $('#messages').append($('<li>').html( '[' + timeStamp + '] ' + 
+      '<span style="color:#' + color + '">' + sender + '</span>: '  + msg));
+      break; 
+      case 3:
+        $('#messages').append($('<li>').html('[' + timeStamp + '] ' + msg));
+        break;
+  }
+  //scroll to bottom
   var element = document.getElementById("messages");
   element.scrollTop = element.scrollHeight - element.clientHeight;
 }
