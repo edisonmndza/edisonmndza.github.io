@@ -72,20 +72,25 @@ form {
 }
 
 form input { 
+    border-radius: 5px;
     flex-grow: 6;
     border: 0; 
     padding: 10px;
     margin-right: 5px;
 }
 
-form button { 
+
+form button{ 
+    border-radius: 5px;
     flex-grow: 1;
-    background: #EA638C; 
+    color: #FFD9DA; 
+    background-color: black;
     border: none; 
     padding: 10px;
 }
 
 #messages, #user-list{ 
+    border-radius: 5px;
     list-style-type: none; 
     padding: 0px; 
     background-color: whitesmoke;

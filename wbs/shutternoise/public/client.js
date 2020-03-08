@@ -1,5 +1,3 @@
-let username;
-
 $(function () {
   var socket = io();
   
@@ -11,11 +9,21 @@ $(function () {
   });
 
   socket.on('user-connect', function(){
-    socket.emit('new-user');
+    let username = document.cookie.replace(/(?:(?:^|.*;\s*)__user_name\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+    if (username == "") { 
+      alertBox()
+      socket.emit('new-user');
+    }
+    else {
+      let usercolor = document.cookie.replace(/(?:(?:^|.*;\s*)__user_color\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+      socket.emit('return-user', username, usercolor)
+    }
   })
 
-  socket.on('assigned-name', function(myName){
-    username = myName;
+  socket.on('update-client-info', function(myName, myColor){
+    document.cookie = "__user_name = " + myName + ";" 
+    document.cookie = "__user_color = " + myColor + ";";
+    console.log(document.cookie)
   })
 
   socket.on('update-user-list', function(userList){
@@ -24,6 +32,7 @@ $(function () {
 
     //add all users
     userList.forEach(function(currUser, ind, arr){
+      let username = document.cookie.replace(/(?:(?:^|.*;\s*)__user_name\s*\=\s*([^;]*).*$)|^.*$/, "$1");
       if (currUser === username) {
         $('#user-list').append($('<li>').html('<b>'+currUser+' (you)</b>'))
       } else {
@@ -62,10 +71,14 @@ function addMessage(color, sender, timeStamp, msg, type){
       '<span style="color:#' + color + '">' + sender + '</span>: '  + msg));
       break; 
       case 3:
-        $('#messages').append($('<li>').html('[' + timeStamp + '] ' + msg));
+        $('#messages').append($('<li>').html(msg));
         break;
   }
   //scroll to bottom
-  var element = document.getElementById("messages");
+  let element = document.getElementById("messages");
   element.scrollTop = element.scrollHeight - element.clientHeight;
+}
+
+function alertBox(){
+  alert("Welcome to ShutterNOISE! \n type /nick [new-name] to change the username \n type /nickcolor RRGGBB to change color")
 }
