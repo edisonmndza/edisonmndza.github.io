@@ -12,18 +12,20 @@
   <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
-  <!-- <header>
-    <a href="index.html"><img class="logo" src="images/logo.png" alt="logo"></a>
-  </header> -->
-  <div class="left">
-    <ul id="messages"></ul>
-    
+  <div class="main-body">
+    <div class="left">
+      <header><a href="index.html"><img class="logo" src="src/logo.png" alt="logo"></a></header>
+      <ul id="messages"></ul>
+      <form>
+        <input id="m" autocomplete="off"></input>
+        <button>Send</button>
+      </form>  
+    </div>
+    <div class="right">
+      <header><p>placeholder</p></header>
+      <h3> Welcome [UserName]</h3>
+      <ul id="user-activity"></ul>
+    </div>  
   </div>
-  <footer>
-    <form>
-      <input id="m" autocomplete="off"></input>
-      <button>Send</button>
-    </form>
-  </footer>
   </body>
 </html>

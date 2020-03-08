@@ -3,6 +3,7 @@
 body, html {
     height: 100%;
     margin: 0;
+    background-color: #FFD9DA;
 }
 
 * { 
@@ -11,19 +12,30 @@ body, html {
     box-sizing: border-box; 
 }
 
+h3 {
+    font-family: "Catamaran", Verdana;
+    font-weight: 500;
+    color: black;
+    padding: 5px 0px 0px 10px;
+}
+
 li, a {
     font-family: "Catamaran", Verdana;
     font-weight: 500;
     font-size: 15px;
-    color: lightgrey;
+    color: black;
     text-decoration: none;
+}
+
+p {
+    font-size: 30px;
 }
 
 header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 8%;
+    padding: 10px;
+    padding-left: 5%;
     background-color: black;
 }
 
@@ -34,42 +46,59 @@ header {
     padding-top: 5px;
 }
 
+.main-body {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 100%;
+}
 .left {
-    width: 80%;
-    border: 2px black solid;
+    display: flex;
+    flex-direction: column;
+    justify-items: space-between;
+    
+    height: 100%;
+    overflow-y: auto;
+
+    width: 70%;
+}
+
+.right {
+    min-width: 30%;
+    border-left: black 1px solid;
+    border-top: black 2px solid;
 }
 
 form { 
-    background: lightgrey; 
-    padding: 3px; 
-    position: fixed; 
-    bottom: 0; 
-    width: 100%; 
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0px 5px 5px 5px; 
+    background-color: #FFD9DA;
 }
 
 form input { 
+    flex-grow: 6;
     border: 0; 
-    padding: 10px; 
-    width: 84%; 
+    padding: 10px;
+    margin-right: 5px;
 }
 
 form button { 
-    width: 14%; 
-    background: rgb(130, 224, 255); 
+    flex-grow: 1;
+    background: #EA638C; 
     border: none; 
-    padding: 10px; 
+    padding: 10px;
 }
 
 #messages { 
     list-style-type: none; 
-    margin: 0; 
-    padding: 0; 
+    margin: 5px; 
+    padding: 0px; 
+    background-color: whitesmoke;
+    overflow-y: auto;
+    height: 90%;
 }
 
 #messages li { 
     padding: 5px 10px; 
-}
-
-#messages li:nth-child(odd) { 
-    background: #eee; 
 }
