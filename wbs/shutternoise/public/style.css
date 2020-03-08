@@ -90,6 +90,7 @@ form button {
     padding: 0px; 
     background-color: whitesmoke;
     overflow-y: auto;
+    overflow-wrap: break-word;
 }
 
 #messages {
