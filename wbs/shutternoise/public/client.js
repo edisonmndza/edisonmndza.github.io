@@ -7,6 +7,13 @@ $(function () {
   return false;
   });
   socket.on('chat message', function(msg){
-  $('#messages').append($('<li>').text(msg));
+    $('#messages').append($('<li>').text(msg));
+    scrollToBottom();
   });
+
 });
+
+function scrollToBottom(){
+  var element = document.getElementById("messages");
+  element.scrollTop = element.scrollHeight - element.clientHeight;
+}
