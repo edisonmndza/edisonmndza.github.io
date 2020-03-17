@@ -27,7 +27,7 @@ li, a {
 header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 50px 0px 50px;
+    padding: 20px 10% 0px 10%;
     background: none;
     height: 10%;
 }
